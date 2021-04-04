@@ -10,5 +10,7 @@ Start reading these topics and prepare a detailed presentation.
 You can work in groups of two (02) or you can go solo. Groups are encouraged as it enables discussion based learning. 
 
 2017A7PS0237P  - Markov Models and Markov Decision Process
+
 2017A7PS0076P  - HMM
+
 2017A7PS0235P  - Kalman Filters
