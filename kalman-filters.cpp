@@ -1,6 +1,7 @@
 //EIGEN LIBRARY NEEDS TO BE INSTALLED BEFORE CODE COMPILATION
 #include <bits/stdc++.h>
 #include <Eigen/Dense>
+using namespace std;
 class KalmanFilter {		//Class Kalman Filter
 public:
   int m, n;		//System dimensions
