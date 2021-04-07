@@ -1,3 +1,4 @@
+//EIGEN LIBRARY NEEDS TO BE INSTALLED BEFORE CODE COMPILATION
 #include <bits/stdc++.h>
 #include <Eigen/Dense>
 class KalmanFilter {		//Class Kalman Filter
