@@ -85,7 +85,7 @@ int main(int argc, char* argv[]) {
   int n = 3; // Number of states
   int m = 1; // Number of measurements
 
-  double dt = 1.0/30; // Time step
+  double dt = 1.0/60; // Time step
 
   Eigen::MatrixXd A(n, n); // System dynamics matrix
   Eigen::MatrixXd B(n, n); // Control-input matrix
@@ -94,13 +94,13 @@ int main(int argc, char* argv[]) {
   Eigen::MatrixXd R(m, m); // Measurement noise covariance
   Eigen::MatrixXd P(n, n); // Estimate error covariance
 
-  // Discrete LTI projectile motion, measuring position only
+  // Motion of a vehicle 
   A << 1, dt, 0, 0, 1, dt, 0, 0, 1;
-//  B << 0.1, 0, dt, 0, dt, 0, dt, 0.1, 0.1;
-  B << 1, dt, 0, 0, 1, dt, 0, 0, 1;
+  B << 0.1, 0, dt, 0, dt, 0, dt, 0.1, 0.1;
+//   B << 1, dt, 0, 0, 1, dt, 0, 0, 1;
   C << 1, 0, 0;
 
-  // Reasonable covariance matrices
+  // Covariance matrices
   Q << .01, .0, .02, .0, .05, .02, .04, .03, .01;
   R << 3;
   P << .1, .1, .1, .1, 10000, 10, .1, 10, 100;
@@ -146,7 +146,7 @@ int main(int argc, char* argv[]) {
   i0 << inputs[0], 0 , 0.08;
   kf.init(t, x0, i0);
 
-  // Feed measurements into filter, output estimated states
+  // Measurements input to filter, output estimated states
 
   Eigen::VectorXd y(m), inp(n);
   std::cout << "t = " << t << ", " << "x_curr[0]: " << kf.return_state().transpose() << std::endl;
