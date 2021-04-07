@@ -54,7 +54,7 @@ void KalmanFilter::init() {	//variable initialization
 
 void KalmanFilter::init(double t0, const Eigen::VectorXd& x0, const Eigen::VectorXd& i0) {
   x_curr = x0;
-//  input = i0;
+  input = i0;
   P = P0;
   this->t0 = t0;
   t = t0;
@@ -142,7 +142,7 @@ int main(int argc, char* argv[]) {
   
   Eigen::VectorXd x0(n), i0(n);
   double t = 0;
-  x0 << measurements[0], 0, -9.81;
+  x0 << measurements[0], 0, -10;
   i0 << inputs[0], 0 , 0.08;
   kf.init(t, x0, i0);
 
